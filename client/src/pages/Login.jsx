@@ -26,35 +26,35 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-card border border-gray-100 p-8 animate-fadeUp">
-        <div className="flex items-center gap-2 text-xl font-display font-extrabold text-brand-700 mb-8">
-          <span className="w-8 h-8 rounded-lg bg-brand-gradient text-white flex items-center justify-center text-sm">⇄</span>
+    <div className="min-h-screen flex items-center justify-center bg-[#050817] px-4 py-12 text-white">
+      <div className="w-full max-w-sm rounded-2xl border border-white/[0.08] bg-[#10182a] p-8 shadow-2xl shadow-black/20 animate-fadeUp">
+        <div className="flex items-center gap-2 text-xl font-display font-extrabold text-white mb-8">
+          <span className="w-8 h-8 rounded-lg border border-[#19d3a2]/30 bg-[#0d2d32] text-[#19d3a2] flex items-center justify-center text-sm">⇄</span>
           SkillSwap
         </div>
 
         <h1 className="text-2xl font-display font-bold mb-1">Welcome back</h1>
-        <p className="text-gray-500 text-sm mb-6">Log in to trade skills with your peers.</p>
+        <p className="text-slate-300 text-sm mb-6">Log in to trade skills with your peers.</p>
 
         <form onSubmit={submit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-slate-200 mb-1">Email</label>
             <input
               required
               type="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent"
+              className="w-full border border-white/10 bg-[#050817] text-white placeholder:text-slate-500 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#19d3a2] focus:border-transparent"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-slate-200 mb-1">Password</label>
             <input
               required
               type="password"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent"
+              className="w-full border border-white/10 bg-[#050817] text-white placeholder:text-slate-500 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#19d3a2] focus:border-transparent"
             />
           </div>
 
@@ -64,15 +64,15 @@ const Login = () => {
 
           <button
             disabled={submitting}
-            className="w-full bg-brand-gradient text-white font-semibold py-3 rounded-xl shadow-glow hover:opacity-95 transition-all disabled:opacity-50"
+            className="w-full bg-[#08a77e] text-white font-semibold py-3 rounded-xl shadow-lg shadow-[#08a77e]/20 hover:bg-[#19c592] transition-all disabled:opacity-50"
           >
             {submitting ? 'Logging in...' : 'Log in'}
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-slate-400 mt-6">
           Don't have an account?{' '}
-          <Link to="/register" className="text-brand-600 font-semibold hover:underline">
+          <Link to="/register" className="text-[#42e0b7] font-semibold hover:underline">
             Sign up
           </Link>
         </p>
