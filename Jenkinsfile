@@ -5,25 +5,26 @@ pipeline {
         COMPOSE_PROJECT_NAME = 'skillswap-ci'
         SERVER_PORT = '5002'
         CLIENT_PORT = '5175'
+        PATH_PLUS_DOCKER = 'C:\\Users\\admin\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin'
     }
 
     stages {
         stage('Validate Docker Compose') {
             steps {
-                bat 'docker compose config -q'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose config -q'
             }
         }
 
         stage('Build Images') {
             steps {
-                bat 'docker compose build --pull'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose build --pull'
             }
         }
 
         stage('Start Services') {
             steps {
-                bat 'docker compose up -d'
-                bat 'docker compose ps'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose up -d'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose ps'
             }
         }
 
@@ -37,13 +38,13 @@ pipeline {
 
     post {
         always {
-            bat 'docker compose ps'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose ps || exit /b 0'
         }
         failure {
-            bat 'docker compose logs --no-color'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose logs --no-color || exit /b 0'
         }
         cleanup {
-            bat 'docker compose down'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose down || exit /b 0'
         }
     }
 }
