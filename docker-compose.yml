@@ -1,9 +1,8 @@
 services:
   mongo:
     image: mongo:8
-    container_name: skillswap-mongo
     ports:
-      - "27017:27017"
+      - "${MONGO_PORT:-27017}:27017"
     volumes:
       - mongo-data:/data/db
     restart: unless-stopped
@@ -15,7 +14,6 @@ services:
 
   server:
     build: ./server
-    container_name: skillswap-server
     ports:
       - "${SERVER_PORT:-5001}:5000"
     environment:
@@ -30,7 +28,6 @@ services:
 
   client:
     build: ./client
-    container_name: skillswap-client
     ports:
       - "${CLIENT_PORT:-5174}:5173"
     environment:

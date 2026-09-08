@@ -5,10 +5,18 @@ pipeline {
         COMPOSE_PROJECT_NAME = 'skillswap-ci'
         SERVER_PORT = '5002'
         CLIENT_PORT = '5175'
+        MONGO_PORT = '27018'
+        DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
         PATH_PLUS_DOCKER = 'C:\\Users\\admin\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin'
     }
 
     stages {
+        stage('Check Docker') {
+            steps {
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker version && docker compose version'
+            }
+        }
+
         stage('Validate Docker Compose') {
             steps {
                 bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose config -q'
