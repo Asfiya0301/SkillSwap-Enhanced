@@ -1,97 +1,44 @@
 import { Link } from 'react-router-dom';
 
-const pathways = [
-  { icon: '01', title: 'Set your direction', text: 'Add the skills you can teach and the ones you want to learn.' },
-  { icon: '02', title: 'Meet a match', text: 'Browse people with a useful overlap in goals and experience.' },
-  { icon: '03', title: 'Make progress', text: 'Message, plan sessions, and keep resources in one workspace.' }
-];
-
 const Home = () => (
-  <main className="min-h-screen bg-brand-gradient-soft text-gray-900">
-    <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
-      <Link to="/" className="flex items-center gap-2 text-lg font-display font-extrabold text-brand-700">
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-gradient text-sm text-white shadow-glow">⇄</span>
-        SkillSwap
-      </Link>
-      <div className="flex items-center gap-3 text-sm font-semibold">
-        <Link to="/login" className="hidden text-gray-500 transition hover:text-gray-900 sm:inline">Log in</Link>
-        <Link to="/register" className="rounded-xl bg-gray-950 px-4 py-2.5 text-white transition hover:bg-brand-600">Create account</Link>
+  <main className="min-h-screen bg-[#050817] text-white">
+    <header className="border-b border-white/[0.06] bg-[#10182a]/95">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-5 sm:px-8">
+        <Link to="/" className="flex items-center gap-2.5 text-base font-display font-extrabold tracking-tight text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#19d3a2]/30 bg-[#0d2d32] text-lg text-[#19d3a2]">⇄</span>
+          Skill<span className="text-[#19d3a2]">Swap</span>
+        </Link>
+        <nav className="flex items-center gap-5 text-xs font-semibold sm:gap-7 sm:text-sm">
+          <span className="hidden text-amber-300 sm:inline" aria-hidden="true">☼</span>
+          <Link to="/login" className="text-slate-300 transition hover:text-white">Log in</Link>
+          <Link to="/register" className="rounded-md bg-[#08a77e] px-4 py-2.5 text-white shadow-lg shadow-[#08a77e]/10 transition hover:bg-[#19c592]">Register</Link>
+        </nav>
       </div>
     </header>
 
-    <section className="mx-auto max-w-6xl px-4 pb-10 pt-5 sm:px-6 lg:px-8 lg:pb-14 lg:pt-10">
-      <div className="relative overflow-hidden rounded-3xl bg-gray-950 px-6 py-9 text-white shadow-card sm:px-10 sm:py-12 lg:px-14 lg:py-16">
-        <div className="absolute right-[-5rem] top-[-8rem] h-72 w-72 rounded-full bg-brand-600/40 blur-3xl" aria-hidden="true" />
-        <div className="absolute bottom-[-7rem] right-1/4 h-52 w-52 rounded-full bg-accent-500/30 blur-3xl" aria-hidden="true" />
-        <div className="relative grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-          <div className="animate-fadeUp">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-brand-200">Learn together. Share what you know.</p>
-            <h1 className="max-w-2xl text-4xl font-display font-extrabold leading-tight sm:text-5xl lg:text-6xl">Your next useful conversation starts here.</h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">SkillSwap helps you find people to teach, learn from, and build momentum with, one practical exchange at a time.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/register" className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-gray-950 transition hover:bg-brand-50">Join the exchange <span aria-hidden="true">→</span></Link>
-              <Link to="/login" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">I already have an account</Link>
-            </div>
-          </div>
-          <div className="relative mx-auto w-full max-w-sm animate-fadeUp [animation-delay:120ms]">
-            <div className="absolute -right-3 -top-4 rounded-xl bg-white px-3 py-2 text-xs font-bold text-emerald-600 shadow-lg sm:-right-5">● Match found</div>
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
-              <div className="rounded-xl bg-white p-5 text-gray-900 shadow-xl">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                  <div><p className="text-xs font-bold uppercase tracking-wider text-brand-600">Your exchange</p><p className="mt-1 text-sm font-semibold text-gray-500">This week</p></div>
-                  <span className="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-bold text-brand-700">1:1</span>
-                </div>
-                <div className="mt-5 space-y-3">
-                  <div className="flex items-center gap-3 rounded-xl bg-brand-50 p-3"><span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 text-lg text-white">✦</span><div><p className="text-xs font-bold uppercase tracking-wider text-gray-400">You teach</p><p className="text-sm font-bold">Product design basics</p></div></div>
-                  <div className="ml-5 h-4 border-l border-dashed border-gray-300" />
-                  <div className="flex items-center gap-3 rounded-xl bg-orange-50 p-3"><span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-500 text-lg text-white">↗</span><div><p className="text-xs font-bold uppercase tracking-wider text-gray-400">You learn</p><p className="text-sm font-bold">React fundamentals</p></div></div>
-                </div>
-                <div className="mt-5 flex items-center justify-between rounded-lg bg-gray-50 px-3 py-2.5 text-xs"><span className="font-semibold text-gray-500">Next session</span><span className="font-bold text-brand-700">Thu · 6:30 PM</span></div>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -left-3 rounded-xl bg-gray-900 px-3 py-2 text-xs font-semibold text-white shadow-lg sm:-left-5"><span className="text-emerald-300">✓</span> Keep learning together</div>
-          </div>
+    <section className="relative flex min-h-[calc(100vh-4.5rem)] items-center justify-center overflow-hidden px-5 py-20 sm:px-8">
+      <div className="pointer-events-none absolute left-[-14rem] top-1/4 h-[32rem] w-[32rem] rounded-full bg-[#064d59]/20 blur-[100px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute right-[-16rem] bottom-[-18rem] h-[34rem] w-[34rem] rounded-full bg-[#0b3140]/20 blur-[110px]" aria-hidden="true" />
+      <div className="relative z-10 mx-auto max-w-4xl text-center animate-fadeUp">
+        <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#0db58c]/20 bg-[#092c32] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#16c89d] sm:text-xs">
+          <span className="text-[#19d3a2]">⇄</span> Exchange knowledge. Grow together.
         </div>
-        <div className="relative mt-10 grid max-w-3xl gap-3 border-t border-white/10 pt-6 sm:grid-cols-3">
-          <div><p className="text-2xl font-display font-bold">1:1</p><p className="mt-1 text-xs text-gray-400">focused learning</p></div>
-          <div><p className="text-2xl font-display font-bold">Live</p><p className="mt-1 text-xs text-gray-400">real conversations</p></div>
-          <div><p className="text-2xl font-display font-bold">Your pace</p><p className="mt-1 text-xs text-gray-400">flexible exchanges</p></div>
+        <h1 className="mx-auto max-w-4xl text-4xl font-display font-extrabold leading-[1.08] tracking-tight text-slate-50 sm:text-6xl lg:text-[4.4rem]">
+          Bridge the gap between <span className="text-[#19d3a2]">what you know</span> and <span className="text-[#19d3a2]">what you want to learn.</span>
+        </h1>
+        <p className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+          SkillSwap is a peer learning community where people share practical skills, find the right exchange, and make progress together in real time.
+        </p>
+        <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <Link to="/register" className="inline-flex items-center gap-2 rounded-lg bg-[#08a77e] px-5 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#08a77e]/20 transition hover:-translate-y-0.5 hover:bg-[#19c592]">Get started today <span aria-hidden="true">→</span></Link>
+          <Link to="/login" className="inline-flex items-center rounded-lg border border-white/10 bg-[#111a2d] px-5 py-3.5 text-sm font-bold text-slate-100 transition hover:border-white/25 hover:bg-[#18233b]">Sign in</Link>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-xl grid-cols-3 border-t border-white/[0.07] pt-6 text-left">
+          <div className="border-r border-white/[0.07] px-3 sm:px-6"><p className="text-lg font-display font-bold text-white">Teach</p><p className="mt-1 text-[11px] text-slate-500">your strengths</p></div>
+          <div className="border-r border-white/[0.07] px-3 text-center sm:px-6"><p className="text-lg font-display font-bold text-[#19d3a2]">Match</p><p className="mt-1 text-[11px] text-slate-500">your goals</p></div>
+          <div className="px-3 text-right sm:px-6"><p className="text-lg font-display font-bold text-white">Learn</p><p className="mt-1 text-[11px] text-slate-500">at your pace</p></div>
         </div>
       </div>
-    </section>
-
-    <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
-      <div className="grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">A better starting point</p>
-          <h2 className="mt-3 max-w-xl text-2xl font-display font-extrabold sm:text-3xl">Bring a goal. Leave with a plan.</h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-gray-500">Whether you are changing careers, sharpening a craft, or finally making time for a curiosity, the right exchange makes learning easier to keep.</p>
-          <div className="mt-7 flex flex-wrap gap-2">
-            {['Design', 'Programming', 'Languages', 'Business', 'Creative skills'].map((topic) => <span key={topic} className="rounded-full bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-700">{topic}</span>)}
-          </div>
-        </div>
-        <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">Built for follow-through</p>
-          <div className="mt-5 space-y-4">
-            {['Find people, not just content', 'Keep your conversations in one place', 'Share guides and track progress'].map((item) => <div key={item} className="flex items-center gap-3 text-sm font-semibold text-gray-700"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-500/10 text-sm text-accent-600">✓</span>{item}</div>)}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className="border-y border-gray-200/80 bg-white/60">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-9 max-w-xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">How it works</p><h2 className="mt-3 text-3xl font-display font-extrabold">Small steps. Real progress.</h2></div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {pathways.map((pathway) => <article key={pathway.icon} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-card"><span className="text-sm font-bold text-accent-600">{pathway.icon}</span><h3 className="mt-8 font-display text-lg font-bold">{pathway.title}</h3><p className="mt-2 text-sm leading-6 text-gray-500">{pathway.text}</p></article>)}
-        </div>
-      </div>
-    </section>
-
-    <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-20">
-      <h2 className="text-3xl font-display font-extrabold sm:text-4xl">Ready to make the swap?</h2>
-      <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-gray-500">Create a profile, share your strengths, and find your next learning partner.</p>
-      <Link to="/register" className="mt-7 inline-flex rounded-xl bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-glow transition hover:opacity-95">Create your profile</Link>
     </section>
   </main>
 );
