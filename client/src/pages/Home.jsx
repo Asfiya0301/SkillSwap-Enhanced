@@ -23,13 +23,33 @@ const Home = () => (
       <div className="relative overflow-hidden rounded-3xl bg-gray-950 px-6 py-9 text-white shadow-card sm:px-10 sm:py-12 lg:px-14 lg:py-16">
         <div className="absolute right-[-5rem] top-[-8rem] h-72 w-72 rounded-full bg-brand-600/40 blur-3xl" aria-hidden="true" />
         <div className="absolute bottom-[-7rem] right-1/4 h-52 w-52 rounded-full bg-accent-500/30 blur-3xl" aria-hidden="true" />
-        <div className="relative max-w-3xl animate-fadeUp">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-brand-200">Learn together. Share what you know.</p>
-          <h1 className="max-w-2xl text-4xl font-display font-extrabold leading-tight sm:text-5xl lg:text-6xl">Your next useful conversation starts here.</h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">SkillSwap helps you find people to teach, learn from, and build momentum with, one practical exchange at a time.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/register" className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-gray-950 transition hover:bg-brand-50">Join the exchange <span aria-hidden="true">→</span></Link>
-            <Link to="/login" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">I already have an account</Link>
+        <div className="relative grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+          <div className="animate-fadeUp">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-brand-200">Learn together. Share what you know.</p>
+            <h1 className="max-w-2xl text-4xl font-display font-extrabold leading-tight sm:text-5xl lg:text-6xl">Your next useful conversation starts here.</h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">SkillSwap helps you find people to teach, learn from, and build momentum with, one practical exchange at a time.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/register" className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-gray-950 transition hover:bg-brand-50">Join the exchange <span aria-hidden="true">→</span></Link>
+              <Link to="/login" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">I already have an account</Link>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-sm animate-fadeUp [animation-delay:120ms]">
+            <div className="absolute -right-3 -top-4 rounded-xl bg-white px-3 py-2 text-xs font-bold text-emerald-600 shadow-lg sm:-right-5">● Match found</div>
+            <div className="rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
+              <div className="rounded-xl bg-white p-5 text-gray-900 shadow-xl">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                  <div><p className="text-xs font-bold uppercase tracking-wider text-brand-600">Your exchange</p><p className="mt-1 text-sm font-semibold text-gray-500">This week</p></div>
+                  <span className="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-bold text-brand-700">1:1</span>
+                </div>
+                <div className="mt-5 space-y-3">
+                  <div className="flex items-center gap-3 rounded-xl bg-brand-50 p-3"><span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 text-lg text-white">✦</span><div><p className="text-xs font-bold uppercase tracking-wider text-gray-400">You teach</p><p className="text-sm font-bold">Product design basics</p></div></div>
+                  <div className="ml-5 h-4 border-l border-dashed border-gray-300" />
+                  <div className="flex items-center gap-3 rounded-xl bg-orange-50 p-3"><span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-500 text-lg text-white">↗</span><div><p className="text-xs font-bold uppercase tracking-wider text-gray-400">You learn</p><p className="text-sm font-bold">React fundamentals</p></div></div>
+                </div>
+                <div className="mt-5 flex items-center justify-between rounded-lg bg-gray-50 px-3 py-2.5 text-xs"><span className="font-semibold text-gray-500">Next session</span><span className="font-bold text-brand-700">Thu · 6:30 PM</span></div>
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -left-3 rounded-xl bg-gray-900 px-3 py-2 text-xs font-semibold text-white shadow-lg sm:-left-5"><span className="text-emerald-300">✓</span> Keep learning together</div>
           </div>
         </div>
         <div className="relative mt-10 grid max-w-3xl gap-3 border-t border-white/10 pt-6 sm:grid-cols-3">
