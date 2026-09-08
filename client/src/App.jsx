@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Messages from './pages/Messages';
 import Dashboard from './pages/Dashboard';
 import LearningWorkspace from './pages/LearningWorkspace';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
         <Route path="/messages/:userId" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
 
-        <Route path="/" element={<Navigate to="/browse" replace />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<Navigate to="/browse" replace />} />
       </Routes>
     </BrowserRouter>
