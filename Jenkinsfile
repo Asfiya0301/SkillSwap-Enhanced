@@ -13,26 +13,26 @@ pipeline {
     stages {
         stage('Check Docker') {
             steps {
-                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker version && docker compose version'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker version && docker-compose version'
             }
         }
 
         stage('Validate Docker Compose') {
             steps {
-                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose config -q'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose config -q'
             }
         }
 
         stage('Build Images') {
             steps {
-                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose build --pull'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose build --pull'
             }
         }
 
         stage('Start Services') {
             steps {
-                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose up -d'
-                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose ps'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose up -d'
+                bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose ps'
             }
         }
 
@@ -46,13 +46,13 @@ pipeline {
 
     post {
         always {
-            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose ps || exit /b 0'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose ps || exit /b 0'
         }
         failure {
-            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose logs --no-color || exit /b 0'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose logs --no-color || exit /b 0'
         }
         cleanup {
-            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker compose down || exit /b 0'
+            bat 'set "PATH=%PATH%;%PATH_PLUS_DOCKER%" && docker-compose down || exit /b 0'
         }
     }
 }
